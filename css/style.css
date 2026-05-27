@@ -562,8 +562,14 @@ a:hover {
 }
 .compare-table thead .rank--2 { background: linear-gradient(180deg, #d8dce5 0%, #8a91a3 100%); color:#1a1a22; }
 .compare-table thead .rank--3 { background: linear-gradient(180deg, #f0bb87 0%, #b06b2c 100%); color:#fff; }
+/* 4位5位は白背景＋濃文字で視認性UP */
 .compare-table thead .rank--4,
-.compare-table thead .rank--5 { background:#6b6b78; }
+.compare-table thead .rank--5 {
+  background: #fff;
+  color: #5a4710;
+  border-top: 3px solid #c5c5cf;
+  vertical-align: middle;
+}
 .compare-table .medal { font-size: 18px; }
 .compare-table .rank-icon {
   display: block;
@@ -584,17 +590,24 @@ a:hover {
   color: #5a4710;
   letter-spacing: .04em;
   line-height: 1;
-  /* 王冠 (rank-icon) と完全に同サイズ */
+  /* 王冠 (rank-icon) と完全に同サイズ・同マージン */
   width: 56px;
   height: 56px;
   margin: 0 auto 6px;
+  background: transparent;
 }
 .compare-table .cmp-rank-num strong {
-  font-size: 22px;
-  color: #8c6a1e;
+  font-size: 24px;
+  color: #c2890c;
   font-weight: 900;
   margin: 0 2px;
   line-height: 1;
+}
+/* ロゴ画像セルの高さも1〜3位と同じに揃える */
+.compare-table thead th { vertical-align: middle; }
+.compare-table .rank-logo-th {
+  display: block;
+  margin: 0 auto;
 }
 .compare-table .rank-logo-th {
   display: block;
@@ -861,7 +874,7 @@ a:hover {
 .rank-card-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   background: #1a1a1a;
   color: #f7d77a;
   padding: 4px 14px;
@@ -869,13 +882,15 @@ a:hover {
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: .05em;
+  line-height: 1;
 }
 .rank-card-badge.has-nyusho {
   background: #fff;
   color: #e7390a;
   border: 2px solid #e7390a;
-  padding: 3px 12px 3px 4px;
+  padding: 4px 14px 4px 4px;
   box-shadow: 0 2px 6px rgba(231, 57, 10, .2);
+  min-height: 36px;
 }
 .rank-card-badge .nyusho {
   display: inline-flex;
@@ -889,30 +904,37 @@ a:hover {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0;
-  margin-right: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
   border: 2px solid #fff;
   outline: 1px solid #e7390a;
   transform: rotate(-12deg);
   flex-shrink: 0;
+  line-height: 1;
 }
 .rank-card-badge .rank-num {
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: .04em;
-  margin-left: 2px;
+  line-height: 1;
 }
 .rank-card-badge .rank-num strong {
-  font-size: 16px;
+  font-size: 18px;
   color: #e7390a;
-  margin-left: 1px;
+  margin: 0 1px;
   font-weight: 900;
+  line-height: 1;
+  display: inline-block;
 }
 .rank-card-badge .rank-label {
+  display: inline-flex;
+  align-items: center;
   font-size: 11px;
   color: #666;
   font-weight: 600;
+  line-height: 1;
 }
 /* ロゴ画像入りH2 */
 .h2--logo {
