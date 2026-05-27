@@ -572,26 +572,29 @@ a:hover {
   margin: 0 auto 6px;
   object-fit: contain;
 }
-/* 4位・5位 比較表用テキスト表記（LP1準拠：cmp-rank-num） */
+/* 4位・5位 比較表用テキスト表記（LP1準拠：王冠アイコン位置に揃える） */
 .compare-table .cmp-rank-num {
-  display: inline-flex;
-  align-items: baseline;
+  display: flex;
+  align-items: center;
   justify-content: center;
   gap: 1px;
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #5a4710;
   letter-spacing: .04em;
-  line-height: 1.2;
+  line-height: 1;
+  /* 王冠 (rank-icon) と完全に同サイズ */
+  width: 56px;
   height: 56px;
   margin: 0 auto 6px;
 }
 .compare-table .cmp-rank-num strong {
-  font-size: 24px;
+  font-size: 22px;
   color: #8c6a1e;
   font-weight: 900;
   margin: 0 2px;
+  line-height: 1;
 }
 .compare-table .rank-logo-th {
   display: block;
@@ -828,21 +831,32 @@ a:hover {
   display: block;
 }
 /* 4位・5位 案件章ヘッダー（LP1準拠の入賞バッジ） */
-.rank-header--minor {
-  display: block;
+/* 親 .rank-header の grid (64px 1fr) を完全に解除して1カラム表示にする */
+.rank-header.rank-header--minor {
+  display: block !important;
+  grid-template-columns: none !important;
   text-align: left;
   margin-bottom: 14px;
   padding-top: 8px;
 }
+.rank-header--minor .rank-card-badge {
+  /* バッジを横一列に固定 */
+  display: inline-flex !important;
+  white-space: nowrap;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+}
 .rank-header--minor .h2--logo {
-  text-align: center;
-  margin-top: 10px;
+  display: block;
+  text-align: left;
+  margin-top: 12px;
 }
 .rank-header--minor .h2--logo .rank-logo {
-  margin: 0 auto 4px;
+  margin: 0 0 4px;
 }
 .rank-header--minor .h2--logo .h2__sub {
-  text-align: center;
+  text-align: left;
 }
 .rank-card-badge {
   display: inline-flex;
