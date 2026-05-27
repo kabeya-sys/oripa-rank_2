@@ -94,6 +94,12 @@
     if (e.key === 'Escape') closeModal();
   });
 
+  /* ===========================================================
+     exit-intent モーダル発火 ── 現在は全て無効化中
+     復活させる場合は下記の各ブロックのコメント (/* と *​/) を外す
+     =========================================================== */
+
+  /*
   // PC: マウスがビューポート上端を超えた瞬間
   document.addEventListener('mouseout', function (e) {
     if (e.clientY <= 0 && !e.relatedTarget && !e.toElement) {
@@ -101,7 +107,9 @@
       if (window.scrollY > 300) openModal();
     }
   });
+  */
 
+  /*
   // SP: 戻るボタン押下を擬似検知 (history.pushStateで一段挟む)
   if ('ontouchstart' in window) {
     history.pushState(null, '', location.href);
@@ -112,6 +120,13 @@
       }
     });
   }
+  */
 
-  // ※ 滞在時間ベースのポップアップは無効化済み（exit-intent のみで発火）
+  /*
+  // 一定時間以上滞在＋下部到達でも発火 (フォールバック)
+  setTimeout(function () {
+    var depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+    if (depth > 0.6 && !shown) openModal();
+  }, 60000);
+  */
 })();
