@@ -1477,12 +1477,11 @@ a:hover {
   z-index: 99;
   background: rgba(13, 13, 13, .96);
   border-top: 2px solid #2BA23A;
-  /* 上下14px・左右14px。下はiOSセーフエリア時のみ追加 */
-  padding: 14px 14px;
-  padding-bottom: max(14px, env(safe-area-inset-bottom));
+  /* LP1と同等：上下10px、下はiOSセーフエリアを最低10pxとして上乗せ */
+  padding: 10px 14px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   box-shadow: 0 -4px 16px rgba(0, 0, 0, .25);
 }
@@ -1496,12 +1495,13 @@ a:hover {
   flex-shrink: 0;
 }
 .sticky-cta__btn.cta {
-  flex: 0 1 auto;
-  padding: 13px 24px;
+  /* LP1と同等：flex:1で残り幅すべてに広がる */
+  flex: 1;
+  padding: 13px 12px;
   font-size: 14px;
   min-width: 0;
   width: auto;
-  max-width: 360px;
+  max-width: none;
   border-radius: 12px;
   box-shadow: 0 3px 0 #156820;
   margin: 0;
@@ -1513,19 +1513,16 @@ a:hover {
   width: 0;
 }
 /* sticky CTAの分だけページ下部に余白を確保 */
-body { padding-bottom: 84px; }
+body { padding-bottom: 72px; }
 @supports (padding: max(0px)) {
-  body { padding-bottom: max(84px, calc(76px + env(safe-area-inset-bottom))); }
+  body { padding-bottom: max(72px, calc(64px + env(safe-area-inset-bottom))); }
 }
-.exit-modal { padding-bottom: 96px; }
+.exit-modal { padding-bottom: 88px; }
 
 @media (min-width: 768px) {
   .sticky-cta {
-    padding: 14px 18px;
-    padding-bottom: max(14px, env(safe-area-inset-bottom));
-  }
-  .sticky-cta__btn.cta {
-    max-width: 480px;
+    padding: 10px 18px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
   }
 }
 
