@@ -572,6 +572,27 @@ a:hover {
   margin: 0 auto 6px;
   object-fit: contain;
 }
+/* 4位・5位 比較表用テキストバッジ（王冠アイコンの代替） */
+.compare-table .rank-text-badge {
+  display: inline-block;
+  margin: 6px auto 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+  border-radius: 8px;
+  letter-spacing: .03em;
+  box-shadow: 0 2px 0 #2c3340;
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
+  line-height: 1;
+}
+.compare-table .rank-text-badge--4 {
+  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+}
+.compare-table .rank-text-badge--5 {
+  background: linear-gradient(180deg, #7a8194 0%, #404a5b 100%);
+}
 .compare-table .rank-logo-th {
   display: block;
   width: 100%;
@@ -805,6 +826,32 @@ a:hover {
   width: 64px;
   height: 64px;
   display: block;
+}
+/* 4位・5位 案件章ヘッダー用テキストバッジ（王冠の代替） */
+.rank-header__text-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+  border-radius: 50%;
+  letter-spacing: .03em;
+  box-shadow: 0 3px 0 #2c3340, 0 4px 10px rgba(0,0,0,.15);
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
+  border: 3px solid #fff;
+  outline: 2px solid #8a91a3;
+  line-height: 1;
+}
+.rank-header__text-badge--4 {
+  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+}
+.rank-header__text-badge--5 {
+  background: linear-gradient(180deg, #7a8194 0%, #404a5b 100%);
+  outline-color: #7a8194;
 }
 /* ロゴ画像入りH2 */
 .h2--logo {
