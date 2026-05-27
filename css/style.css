@@ -572,26 +572,26 @@ a:hover {
   margin: 0 auto 6px;
   object-fit: contain;
 }
-/* 4位・5位 比較表用テキストバッジ（王冠アイコンの代替） */
-.compare-table .rank-text-badge {
-  display: inline-block;
-  margin: 6px auto 8px;
-  padding: 8px 14px;
-  font-size: 14px;
+/* 4位・5位 比較表用テキスト表記（LP1準拠：cmp-rank-num） */
+.compare-table .cmp-rank-num {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5a4710;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  height: 56px;
+  margin: 0 auto 6px;
+}
+.compare-table .cmp-rank-num strong {
+  font-size: 24px;
+  color: #8c6a1e;
   font-weight: 900;
-  color: #fff;
-  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
-  border-radius: 8px;
-  letter-spacing: .03em;
-  box-shadow: 0 2px 0 #2c3340;
-  text-shadow: 0 1px 1px rgba(0,0,0,.25);
-  line-height: 1;
-}
-.compare-table .rank-text-badge--4 {
-  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
-}
-.compare-table .rank-text-badge--5 {
-  background: linear-gradient(180deg, #7a8194 0%, #404a5b 100%);
+  margin: 0 2px;
 }
 .compare-table .rank-logo-th {
   display: block;
@@ -827,31 +827,78 @@ a:hover {
   height: 64px;
   display: block;
 }
-/* 4位・5位 案件章ヘッダー用テキストバッジ（王冠の代替） */
-.rank-header__text-badge {
+/* 4位・5位 案件章ヘッダー（LP1準拠の入賞バッジ） */
+.rank-header--minor {
+  display: block;
+  text-align: left;
+  margin-bottom: 14px;
+  padding-top: 8px;
+}
+.rank-header--minor .h2--logo {
+  text-align: center;
+  margin-top: 10px;
+}
+.rank-header--minor .h2--logo .rank-logo {
+  margin: 0 auto 4px;
+}
+.rank-header--minor .h2--logo .h2__sub {
+  text-align: center;
+}
+.rank-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a1a1a;
+  color: #f7d77a;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+.rank-card-badge.has-nyusho {
+  background: #fff;
+  color: #e7390a;
+  border: 2px solid #e7390a;
+  padding: 3px 12px 3px 4px;
+  box-shadow: 0 2px 6px rgba(231, 57, 10, .2);
+}
+.rank-card-badge .nyusho {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  font-size: 14px;
-  font-weight: 900;
+  background: linear-gradient(135deg, #ff5a1f, #e7390a);
   color: #fff;
-  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  letter-spacing: .03em;
-  box-shadow: 0 3px 0 #2c3340, 0 4px 10px rgba(0,0,0,.15);
-  text-shadow: 0 1px 1px rgba(0,0,0,.25);
-  border: 3px solid #fff;
-  outline: 2px solid #8a91a3;
-  line-height: 1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-right: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+  border: 2px solid #fff;
+  outline: 1px solid #e7390a;
+  transform: rotate(-12deg);
+  flex-shrink: 0;
 }
-.rank-header__text-badge--4 {
-  background: linear-gradient(180deg, #8a91a3 0%, #4f5a6b 100%);
+.rank-card-badge .rank-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: .04em;
+  margin-left: 2px;
 }
-.rank-header__text-badge--5 {
-  background: linear-gradient(180deg, #7a8194 0%, #404a5b 100%);
-  outline-color: #7a8194;
+.rank-card-badge .rank-num strong {
+  font-size: 16px;
+  color: #e7390a;
+  margin-left: 1px;
+  font-weight: 900;
+}
+.rank-card-badge .rank-label {
+  font-size: 11px;
+  color: #666;
+  font-weight: 600;
 }
 /* ロゴ画像入りH2 */
 .h2--logo {
