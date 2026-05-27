@@ -1,0 +1,166 @@
+/* =========================================================
+   サブページ用スタイル ── プライバシー／会社概要／調査概要
+   ========================================================= */
+.sub-page {
+  background: #fff;
+}
+.sub-main {
+  padding: 28px 0 40px;
+  background: #fff;
+}
+.sub-page__title {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 900;
+  color: #fff;
+  background: var(--c-pink);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: 0 4px 0 var(--c-pink-dark);
+}
+.sub-page__lead {
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0 0 22px;
+  background: #f7f8fa;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+}
+.sub-h2 {
+  margin: 28px 0 12px;
+  padding: 10px 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--c-pink);
+  border-radius: 6px;
+  border-left: 8px solid var(--c-pink-dark);
+}
+.sub-h3 {
+  margin: 18px 0 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--c-pink-dark);
+  background: var(--c-yellow);
+  border-left: 4px solid var(--c-pink);
+  border-radius: 0 4px 4px 0;
+}
+.sub-main p {
+  font-size: 14.5px;
+  line-height: 1.85;
+  margin: 0 0 12px;
+}
+.sub-list {
+  list-style: disc;
+  padding: 0 0 0 22px;
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+.sub-list--numbered {
+  list-style: decimal;
+}
+.sub-list li { margin: 0 0 4px; }
+.sub-note {
+  font-size: 12px;
+  color: var(--c-text-light);
+  line-height: 1.75;
+  background: #f7f8fa;
+  padding: 10px 12px;
+  border-left: 4px solid var(--c-orange);
+  border-radius: 0 4px 4px 0;
+  margin: 8px 0 14px;
+}
+.sub-contact-box {
+  background: linear-gradient(180deg, #FFF9E0 0%, #FFEFB0 100%);
+  border: 2px dashed var(--c-orange-dark);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin: 12px 0 18px;
+}
+.sub-contact-box p { margin: 0 0 8px; line-height: 1.85; font-size: 14.5px; }
+.sub-contact-box p:last-child { margin-bottom: 0; }
+.sub-form-cta {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.sub-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 14px;
+  background: #fff;
+  font-size: 14px;
+}
+.sub-table th,
+.sub-table td {
+  border: 1px solid var(--c-border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.7;
+}
+.sub-table th {
+  background: #f6f6fa;
+  width: 32%;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--c-text);
+}
+.sub-table--score {
+  font-size: 13px;
+  min-width: 720px;
+}
+.sub-table--score th,
+.sub-table--score td {
+  text-align: center;
+  padding: 8px 6px;
+}
+.sub-table--score thead th {
+  background: var(--c-pink);
+  color: #fff;
+}
+.sub-table--score tbody th {
+  background: #f4f4f7;
+  text-align: left;
+  white-space: normal;
+}
+.sub-table--score .sub-table__total th,
+.sub-table--score .sub-table__total td {
+  background: linear-gradient(180deg, #FFFAE3 0%, #FFF1B0 100%);
+  font-weight: 800;
+}
+.criteria {
+  background: #f9f9fc;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin: 0 0 14px;
+}
+.sub-back-cta {
+  text-align: center;
+  margin: 36px 0 0;
+}
+.sub-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 18px 18px 20px;
+  margin: 0 0 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--c-border);
+}
+.last-updated {
+  text-align: right;
+  font-size: 12px;
+  color: var(--c-text-light);
+  margin: 24px 0 16px;
+}
+
+@media (max-width: 600px) {
+  .sub-table th {
+    width: 40%;
+    font-size: 13px;
+    white-space: normal;
+  }
+}
