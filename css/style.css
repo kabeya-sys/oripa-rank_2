@@ -1467,6 +1467,66 @@ a:hover {
 }
 
 /* =========================================================
+   追従Sticky CTA（LP1準拠）
+   ========================================================= */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(13, 13, 13, .96);
+  border-top: 2px solid #2BA23A;
+  padding: 10px 14px env(safe-area-inset-bottom);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, .25);
+}
+.sticky-cta__label {
+  font-size: 10.5px;
+  color: #f7d77a;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-align: center;
+}
+.sticky-cta__btn.cta {
+  flex: 1;
+  padding: 13px 18px;
+  font-size: 14px;
+  min-width: 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #156820;
+  margin: 0;
+  /* sticky内は跳ねるアニメを抑える（shineの光沢だけ残す） */
+}
+.sticky-cta__btn.cta::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  width: 0;
+}
+/* sticky CTAの分だけページ下部に余白を確保 */
+body { padding-bottom: 72px; }
+/* iOSセーフエリア対応 */
+@supports (padding: max(0px)) {
+  body { padding-bottom: max(72px, calc(64px + env(safe-area-inset-bottom))); }
+}
+/* sticky CTAが exit-modal と被らないように調整 */
+.exit-modal { padding-bottom: 88px; }
+
+@media (min-width: 768px) {
+  .sticky-cta {
+    padding: 12px 18px;
+    justify-content: center;
+  }
+  .sticky-cta__btn.cta {
+    max-width: 480px;
+  }
+}
+
+/* =========================================================
    離脱モーダル
    ========================================================= */
 .exit-modal {
