@@ -1480,6 +1480,7 @@ a:hover {
   padding: 10px 14px env(safe-area-inset-bottom);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   box-shadow: 0 -4px 16px rgba(0, 0, 0, .25);
 }
@@ -1490,16 +1491,18 @@ a:hover {
   line-height: 1.3;
   white-space: nowrap;
   text-align: center;
+  flex-shrink: 0;
 }
 .sticky-cta__btn.cta {
-  flex: 1;
-  padding: 13px 18px;
+  flex: 0 1 auto;
+  padding: 13px 24px;
   font-size: 14px;
   min-width: 0;
+  width: auto;
+  max-width: 360px;
   border-radius: 12px;
   box-shadow: 0 3px 0 #156820;
   margin: 0;
-  /* sticky内は跳ねるアニメを抑える（shineの光沢だけ残す） */
 }
 .sticky-cta__btn.cta::before {
   content: "";
@@ -1509,17 +1512,14 @@ a:hover {
 }
 /* sticky CTAの分だけページ下部に余白を確保 */
 body { padding-bottom: 72px; }
-/* iOSセーフエリア対応 */
 @supports (padding: max(0px)) {
   body { padding-bottom: max(72px, calc(64px + env(safe-area-inset-bottom))); }
 }
-/* sticky CTAが exit-modal と被らないように調整 */
 .exit-modal { padding-bottom: 88px; }
 
 @media (min-width: 768px) {
   .sticky-cta {
     padding: 12px 18px;
-    justify-content: center;
   }
   .sticky-cta__btn.cta {
     max-width: 480px;
