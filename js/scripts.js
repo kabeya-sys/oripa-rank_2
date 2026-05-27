@@ -113,9 +113,5 @@
     });
   }
 
-  // 一定時間以上滞在＋下部到達でも発火 (フォールバック)
-  setTimeout(function () {
-    var depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-    if (depth > 0.6 && !shown) openModal();
-  }, 60000);
+  // ※ 滞在時間ベースのポップアップは無効化済み（exit-intent のみで発火）
 })();
