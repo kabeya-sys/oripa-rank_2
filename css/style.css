@@ -1477,7 +1477,9 @@ a:hover {
   z-index: 99;
   background: rgba(13, 13, 13, .96);
   border-top: 2px solid #2BA23A;
-  padding: 10px 14px env(safe-area-inset-bottom);
+  /* 上下14px・左右14px。下はiOSセーフエリア時のみ追加 */
+  padding: 14px 14px;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1511,15 +1513,16 @@ a:hover {
   width: 0;
 }
 /* sticky CTAの分だけページ下部に余白を確保 */
-body { padding-bottom: 72px; }
+body { padding-bottom: 84px; }
 @supports (padding: max(0px)) {
-  body { padding-bottom: max(72px, calc(64px + env(safe-area-inset-bottom))); }
+  body { padding-bottom: max(84px, calc(76px + env(safe-area-inset-bottom))); }
 }
-.exit-modal { padding-bottom: 88px; }
+.exit-modal { padding-bottom: 96px; }
 
 @media (min-width: 768px) {
   .sticky-cta {
-    padding: 12px 18px;
+    padding: 14px 18px;
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
   }
   .sticky-cta__btn.cta {
     max-width: 480px;
