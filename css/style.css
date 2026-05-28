@@ -1132,6 +1132,12 @@ a:hover {
   gap: 8px;
   margin: 14px 0 8px;
 }
+.sns-gallery--2col {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media (max-width: 560px) {
   .sns-gallery { grid-template-columns: repeat(2, 1fr); }
 }
