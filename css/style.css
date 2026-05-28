@@ -1101,15 +1101,16 @@ a:hover {
 .global-notes__list li { margin: 0 0 4px; }
 .global-notes__list strong { color: #6B4A0A; }
 
-/* オリくじ章 還元率画像セット（同サイズ684×450を3枚並列） */
+/* オリくじ章 還元率画像セット（同サイズ684×450を2枚並列・中央寄せ） */
 .rank-detail__imgs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  margin: 12px 0;
+  margin: 12px auto;
+  max-width: 480px;
 }
 @media (max-width: 560px) {
-  .rank-detail__imgs { grid-template-columns: repeat(3, 1fr); }
+  .rank-detail__imgs { grid-template-columns: repeat(2, 1fr); }
 }
 .rank-detail__imgs img {
   display: block;
