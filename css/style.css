@@ -988,7 +988,7 @@ a:hover {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  background: #1a1a22;
+  background: #fff;
   line-height: 0;
   text-align: center;
 }
@@ -1336,7 +1336,6 @@ a:hover {
   background: #fff;
   padding: 24px 0;
 }
-.rank-detail--minor .rank-detail__hero { max-height: 240px; }
 .rank-detail--minor .spec-table { margin: 12px 0; }
 .rank-detail--minor .recommend-box { margin: 12px 0 14px; }
 
