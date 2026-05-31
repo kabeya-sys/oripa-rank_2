@@ -1159,6 +1159,41 @@ a:hover {
   text-align: center;
 }
 
+/* ===== クーポン訴求テキスト（バナー上） ===== */
+.coupon-lead {
+  max-width: 480px;
+  margin: 18px auto 8px;
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--c-pink-dark);
+  background: linear-gradient(180deg, #FFFAE3 0%, #FFF1B0 100%);
+  border: 2px dashed #E96E0F;
+  border-radius: 10px;
+  position: relative;
+}
+.coupon-lead strong {
+  color: #E03C3C;
+  font-size: 15px;
+  background: linear-gradient(transparent 60%, #FFEB6B 60%);
+  padding: 0 2px;
+}
+.coupon-lead::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #E96E0F;
+}
+@media (max-width: 480px) {
+  .coupon-lead { font-size: 13px; }
+  .coupon-lead strong { font-size: 14px; }
+}
+
 /* ===== クーポン訴求バナー（CTA直前） ===== */
 .coupon-banner {
   display: block;
