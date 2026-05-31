@@ -1159,6 +1159,34 @@ a:hover {
   text-align: center;
 }
 
+/* ===== クーポン訴求バナー（CTA直前） ===== */
+.coupon-banner {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 4px;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  transition: transform .15s, box-shadow .15s;
+  animation: couponBob 2s ease-in-out infinite;
+}
+.coupon-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.coupon-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  animation-play-state: paused;
+  opacity: 1;
+}
+@keyframes couponBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
 /* 利用者投稿スライダー */
 .winner-slider {
   margin: 14px 0 0;
