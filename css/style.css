@@ -783,6 +783,20 @@ a:hover {
   opacity: .95;
   margin-bottom: 2px;
 }
+/* ボタン内に小タグ（＼登録無料！／）＋サービス名を2行表示 */
+.cta-tag {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: .95;
+  margin-bottom: 4px;
+  letter-spacing: .04em;
+}
+.cta--with-tag {
+  padding-top: 12px;
+  padding-bottom: 14px;
+  line-height: 1.35;
+}
 /* ===== グラデ光沢アニメーション (shine) ===== */
 .cta--shine {
   position: relative;
