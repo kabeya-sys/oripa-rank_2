@@ -755,6 +755,18 @@ a:hover {
   border-radius: 10px;
   box-shadow: 0 3px 0 rgba(0,0,0,.12);
   min-width: 0;
+  /* 1行表示で固定（折り返し防止） */
+  flex-direction: row;
+  white-space: nowrap;
+  line-height: 1;
+}
+/* 比較表内のCTAは確実に1行で同じ幅に */
+.compare-table .cta--small {
+  display: inline-flex;
+  width: 100%;
+  max-width: 110px;
+  padding: 10px 8px;
+  justify-content: center;
 }
 /* cta--xl ── 本文用の唯一の標準サイズ（全本文CTA共通） */
 .cta--xl {
