@@ -1187,26 +1187,29 @@ a:hover {
   text-align: center;
 }
 
-/* ===== オリくじ専用 新弾BOX訴求ハイライト ===== */
+/* ===== オリくじ専用 新弾BOX訴求ハイライト（雑誌記事風） ===== */
 .orikuji-highlight {
-  margin: 14px 0;
-  padding: 14px 16px 16px;
-  background: linear-gradient(180deg, #FFF9E0 0%, #FFE7A8 100%);
-  border: 2px solid #F5A623;
-  border-radius: 12px;
+  margin: 22px 0;
+  padding: 18px 4px 4px;
+  background: none;
+  border: none;
+  border-top: 3px double #E96E0F;
+  border-bottom: 3px double #E96E0F;
+  border-radius: 0;
+  box-shadow: none;
   position: relative;
-  box-shadow: 0 4px 0 #d99220;
+  counter-reset: orikuji-counter;
 }
 .orikuji-highlight__title {
-  margin: 0 0 10px;
-  font-size: 15px;
+  margin: 0 0 14px;
+  font-size: 16px;
   font-weight: 800;
   line-height: 1.6;
-  color: #5b2a00;
+  color: var(--c-text);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 .orikuji-highlight__title strong {
   background: linear-gradient(transparent 65%, #FFEB6B 65%);
@@ -1216,58 +1219,65 @@ a:hover {
 }
 .orikuji-highlight__chip {
   display: inline-block;
-  background: linear-gradient(135deg, #ff5a1f, #e7390a);
+  background: #E03C3C;
   color: #fff;
   font-size: 12px;
   font-weight: 900;
   padding: 3px 10px;
-  border-radius: 4px;
-  letter-spacing: .05em;
-  box-shadow: 0 2px 0 rgba(0,0,0,.15);
-  border: 1.5px solid #fff;
+  border-radius: 3px;
+  letter-spacing: .08em;
   flex-shrink: 0;
 }
+/* 番号付きリスト形式（カードではなく行リスト） */
 .orikuji-highlight__list {
   list-style: none;
   padding: 0;
-  margin: 0 0 12px;
-  display: grid;
-  gap: 6px;
+  margin: 0 0 14px;
 }
 .orikuji-highlight__list li {
-  position: relative;
-  padding: 8px 10px 8px 36px;
-  background: #fff;
-  border-radius: 6px;
-  border-left: 4px solid #E96E0F;
-  font-size: 14.5px;
-  line-height: 1.5;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px dashed #d4d4d4;
+  background: none;
+  border-left: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--c-text);
-  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.orikuji-highlight__list li:last-child {
+  border-bottom: none;
 }
 .orikuji-highlight__list li::before {
-  content: "▶";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #E96E0F;
-  font-size: 12px;
+  content: counter(orikuji-counter, decimal-leading-zero);
+  counter-increment: orikuji-counter;
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
   font-weight: 900;
+  color: #E96E0F;
+  line-height: 1;
+  letter-spacing: -.02em;
+  min-width: 30px;
 }
 .orikuji-highlight__list li strong {
   color: #c12121;
   font-weight: 900;
-  font-size: 15px;
+  font-size: 15.5px;
 }
+/* 0円ガチャ訴求：引用ブロック風 */
 .orikuji-highlight__free {
-  margin: 0;
-  padding: 10px 12px;
-  background: #fff;
-  border: 2px dashed #E03C3C;
-  border-radius: 8px;
-  font-size: 14px;
-  line-height: 1.6;
+  margin: 0 0 14px;
+  padding: 10px 14px 10px 16px;
+  background: #FFF9E0;
+  border: none;
+  border-left: 5px solid #E03C3C;
+  border-radius: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
   color: var(--c-text);
 }
 .orikuji-highlight__free strong {
@@ -1283,10 +1293,11 @@ a:hover {
   margin-left: 2px;
 }
 @media (max-width: 480px) {
-  .orikuji-highlight__title { font-size: 14px; }
-  .orikuji-highlight__list li { font-size: 13.5px; padding-left: 32px; }
-  .orikuji-highlight__list li strong { font-size: 14px; }
-  .orikuji-highlight__free { font-size: 13px; }
+  .orikuji-highlight__title { font-size: 14.5px; }
+  .orikuji-highlight__list li { font-size: 14px; gap: 8px; }
+  .orikuji-highlight__list li::before { font-size: 20px; min-width: 26px; }
+  .orikuji-highlight__list li strong { font-size: 14.5px; }
+  .orikuji-highlight__free { font-size: 13.5px; }
 }
 
 /* ===== クーポン訴求テキスト（バナー上） ===== */
