@@ -1175,6 +1175,108 @@ a:hover {
   text-align: center;
 }
 
+/* ===== オリくじ専用 新弾BOX訴求ハイライト ===== */
+.orikuji-highlight {
+  margin: 14px 0;
+  padding: 14px 16px 16px;
+  background: linear-gradient(180deg, #FFF9E0 0%, #FFE7A8 100%);
+  border: 2px solid #F5A623;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 0 #d99220;
+}
+.orikuji-highlight__title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.6;
+  color: #5b2a00;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.orikuji-highlight__title strong {
+  background: linear-gradient(transparent 65%, #FFEB6B 65%);
+  color: #c12121;
+  font-weight: 900;
+  padding: 0 2px;
+}
+.orikuji-highlight__chip {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff5a1f, #e7390a);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: .05em;
+  box-shadow: 0 2px 0 rgba(0,0,0,.15);
+  border: 1.5px solid #fff;
+  flex-shrink: 0;
+}
+.orikuji-highlight__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 6px;
+}
+.orikuji-highlight__list li {
+  position: relative;
+  padding: 8px 10px 8px 36px;
+  background: #fff;
+  border-radius: 6px;
+  border-left: 4px solid #E96E0F;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--c-text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.orikuji-highlight__list li::before {
+  content: "▶";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #E96E0F;
+  font-size: 12px;
+  font-weight: 900;
+}
+.orikuji-highlight__list li strong {
+  color: #c12121;
+  font-weight: 900;
+  font-size: 15px;
+}
+.orikuji-highlight__free {
+  margin: 0;
+  padding: 10px 12px;
+  background: #fff;
+  border: 2px dashed #E03C3C;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--c-text);
+}
+.orikuji-highlight__free strong {
+  color: #c12121;
+  font-weight: 900;
+  background: linear-gradient(transparent 65%, #FFEB6B 65%);
+  padding: 0 2px;
+}
+.orikuji-highlight__free small {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--c-text-light);
+  margin-left: 2px;
+}
+@media (max-width: 480px) {
+  .orikuji-highlight__title { font-size: 14px; }
+  .orikuji-highlight__list li { font-size: 13.5px; padding-left: 32px; }
+  .orikuji-highlight__list li strong { font-size: 14px; }
+  .orikuji-highlight__free { font-size: 13px; }
+}
+
 /* ===== クーポン訴求テキスト（バナー上） ===== */
 .coupon-lead {
   max-width: 480px;
