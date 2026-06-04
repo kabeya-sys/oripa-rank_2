@@ -64,13 +64,13 @@ a:hover {
 }
 
 /* =========================================================
-   ヘッダー
+   ヘッダー（左：サイトロゴ／右：バッジ群）
    ========================================================= */
 .site-header {
   background: #1a1a22;
   color: #fff;
   font-size: 12px;
-  padding: 6px 0;
+  padding: 8px 0;
 }
 .site-header__inner {
   max-width: 760px;
@@ -78,9 +78,28 @@ a:hover {
   padding: 0 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
   flex-wrap: nowrap;
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.site-logo img {
+  display: block;
+  height: 38px;
+  width: auto;
+  /* オリジナル: 1774x887 (2:1) → 38px x 76px */
+}
+.site-header__badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .badge-latest {
   background: #E06287;
@@ -88,10 +107,7 @@ a:hover {
   padding: 2px 8px;
   border-radius: 4px;
   font-weight: 700;
-}
-.updated-date {
-  color: #c5c5cf;
-  margin-right: auto;
+  white-space: nowrap;
 }
 .badge-pr {
   border: 1px solid #888;
@@ -99,6 +115,14 @@ a:hover {
   padding: 1px 8px;
   border-radius: 3px;
   font-size: 11px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .site-logo img { height: 32px; }
+  .site-header__inner { gap: 8px; padding: 0 12px; }
+  .badge-latest { font-size: 11px; padding: 2px 6px; }
+  .badge-pr { font-size: 10px; padding: 1px 6px; }
 }
 
 /* =========================================================
