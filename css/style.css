@@ -90,9 +90,9 @@ a:hover {
 }
 .site-logo img {
   display: block;
-  height: 38px;
+  height: 36px;
   width: auto;
-  /* オリジナル: 1774x887 (2:1) → 38px x 76px */
+  /* オリジナル: 1708x551 (約3.1:1 / 透過PNG) → 36px x 約111px */
 }
 .site-header__badges {
   display: flex;
@@ -119,10 +119,11 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-  .site-logo img { height: 32px; }
-  .site-header__inner { gap: 8px; padding: 0 12px; }
-  .badge-latest { font-size: 11px; padding: 2px 6px; }
+  .site-logo img { height: 30px; }
+  .site-header__inner { gap: 6px; padding: 0 12px; }
+  .badge-latest { font-size: 10.5px; padding: 2px 6px; }
   .badge-pr { font-size: 10px; padding: 1px 6px; }
+  .site-header__badges { gap: 4px; }
 }
 
 /* =========================================================
