@@ -1,0 +1,20 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景：信頼感のある紺。角丸 -->
+  <rect rx="112" fill="#1B2A4A"/>
+  <!-- 評価★：ゴールド。中央配置、太めで小サイズでも視認しやすい形 -->
+  <path d="M256 108
+           L308 218
+           L428 234
+           L341 320
+           L362 440
+           L256 383
+           L150 440
+           L171 320
+           L84 234
+           L204 218
+           Z"
+        fill="#F5B829"
+        stroke="#C8860A"
+        stroke-width="10"
+        stroke-linejoin="round"/>
+</svg>
