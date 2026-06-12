@@ -1,4 +1,25 @@
+# macOS
 .DS_Store
-.claude/
-*.log
-node_modules/
+**/.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# 使わない素材
+素材/1stview/使わない/
+
+# Office一時ファイル
+~$*
+
+# ローカル作業用バックアップ（デプロイ不要）
+index.backup_*.html
+
+# 参考資料・旧素材（デプロイ不要）
+素材/筆者アイコン/OLD/
+素材/サイトロゴ/old/
+素材/各案件画像/オリくじ/オリくじキャンペーン/オリくじ2.5周年 第1弾.html
+素材/各案件画像/オリくじ/オリくじキャンペーン/オリくじ2.5周年 第1弾_files/
+index_a_backup.html
