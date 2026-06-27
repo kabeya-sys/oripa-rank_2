@@ -2439,6 +2439,10 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
     }
     el.addEventListener('scroll', upd, { passive: true });
     window.addEventListener('resize', upd);
+    window.addEventListener('load', upd);
+    // 画像（遅延読み込み）の読み込み完了後にも再計算し、スクロール前から常時表示
+    el.querySelectorAll('img').forEach(function(im){ if(!im.complete){ im.addEventListener('load', upd); im.addEventListener('error', upd); } });
+    if(window.ResizeObserver){ try { new ResizeObserver(upd).observe(el); } catch(e){} }
     if('requestAnimationFrame' in window){ requestAnimationFrame(upd); } else { upd(); }
   });
 })();
