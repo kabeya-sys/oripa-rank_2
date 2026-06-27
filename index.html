@@ -1561,11 +1561,15 @@ h2.section-title::after{display:none}
 <section class="blog-story" id="author" style="background:#fff;padding-bottom:8px">
   <div class="wrap">
     <div class="author-card">
-      <img loading="lazy" decoding="async" class="ac-avatar" src="素材/筆者アイコン/profile.png" alt="筆者" />
-      <div class="ac-body">
-        <div class="ac-name"><span style="font-size:11px;color:#a07b00;font-weight:700;letter-spacing:.04em">＼ 筆者プロフィール ／</span><br>オリパ研究家・ユウジ<span style="display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:#7a7a7a;background:#f0ece0;border-radius:4px;padding:2px 7px;vertical-align:middle">元ポケカプレイヤー</span></div>
-        <p class="ac-bio">子供を二人もつアラサー男性。元々パチンコが趣味だったが、オリパを知ってからは、パチンカスを卒業。<br>これまで20以上のオリパアプリに実際に課金して検証し、3年で累計900万円を投じてきました。<br><span class="marker">爆死も、PSA10の超アドやBOX当選の“天国”も両方味わった経験から、この記事を書きました。</span><br><br>私の経験を元に絶対に読んで損しないオリパの選び方を紹介しますので、オリパ購入を検討している方の参考になれば幸いです。</p>
+      <div class="ac-head">
+        <img loading="lazy" decoding="async" class="ac-avatar" src="素材/筆者アイコン/profile.png" alt="筆者 オリパ研究家 ユウジ" />
+        <div class="ac-meta">
+          <span class="ac-kicker">＼ 筆者プロフィール ／</span>
+          <span class="ac-name">オリパ研究家 ユウジ</span>
+          <span class="ac-tag">元ポケカプレイヤー</span>
+        </div>
       </div>
+      <p class="ac-bio">子供を二人もつアラサー男性。元々パチンコが趣味だったが、オリパを知ってからは、パチンカスを卒業。<br>これまで20以上のオリパアプリに実際に課金して検証し、3年で累計900万円を投じてきました。<br><span class="marker">爆死も、PSA10の超アドやBOX当選の“天国”も両方味わった経験から、この記事を書きました。</span><br><br>私の経験を元に絶対に読んで損しないオリパの選び方を紹介しますので、オリパ購入を検討している方の参考になれば幸いです。</p>
     </div>
   </div>
 </section>
@@ -1822,11 +1826,14 @@ h2.section-title::after{display:none}
 .scroll-ind{position:relative;height:5px;border-radius:3px;background:#e6e1d5;width:72%;margin:2px auto 10px}
 .scroll-ind-bar{position:absolute;top:0;left:0;height:100%;border-radius:3px;background:#1f3a6e;transition:left .12s ease,width .12s ease}
 /* 筆者プロフィールカード（1ブロック） */
-.author-card{display:flex;gap:12px;align-items:flex-start;border:1px solid #e6e1d5;border-radius:12px;background:#fbf9f4;padding:14px 15px;margin:0 0 18px}
-.author-card .ac-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #e6c200;flex:none}
-.author-card .ac-name{font-size:13px;line-height:1.55;margin-bottom:6px}
-.author-card .ac-name strong{font-size:15px}
-.author-card .ac-bio{font-size:13px;line-height:1.8;margin:0;color:#444}
+.author-card{border:1px solid #e6e1d5;border-radius:12px;background:#fbf9f4;padding:16px;margin:0 0 18px}
+.author-card .ac-head{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px}
+.author-card .ac-avatar{width:74px;height:74px;border-radius:50%;object-fit:cover;border:3px solid #e6c200;flex:none;box-shadow:0 2px 6px rgba(180,140,30,.25)}
+.author-card .ac-meta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;min-width:0}
+.author-card .ac-kicker{font-size:11px;color:#a07b00;font-weight:700;letter-spacing:.04em}
+.author-card .ac-name{font-size:20px;font-weight:800;color:#3a2e12;line-height:1.25}
+.author-card .ac-tag{display:inline-block;align-self:center;font-size:11.5px;font-weight:700;color:#7a5a00;background:#fbeec3;border:1px solid #ecd98a;border-radius:999px;padding:3px 11px}
+.author-card .ac-bio{font-size:14px;line-height:1.9;margin:0;color:#444}
 </style>
 <!-- ============================================
      ③ 比較表（タイトルなし／明るいヘッダー）
