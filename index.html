@@ -2381,6 +2381,21 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
 <script>
 /* 内部リンク(#～)は履歴を増やさずスクロールのみ＝離脱ポップアップ(戻る検知)の誤発火を防ぐ */
 (function(){
+  function jump(t){
+    var cancel=false;
+    var stop=function(){cancel=true;};
+    window.addEventListener('touchstart',stop,{once:true,passive:true});
+    window.addEventListener('wheel',stop,{once:true,passive:true});
+    var end=Date.now()+2600;
+    (function step(){
+      if(cancel)return;
+      var top=t.getBoundingClientRect().top;
+      if(Math.abs(top)<=6||Date.now()>end)return;
+      var y=top+(window.pageYOffset||document.documentElement.scrollTop||0);
+      try{window.scrollTo({top:y,behavior:'smooth'});}catch(_){window.scrollTo(0,y);}
+      setTimeout(step,350);
+    })();
+  }
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[href^="#"]');
     if(!a)return;
@@ -2389,8 +2404,7 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
     var t;try{t=document.querySelector(href);}catch(_){return;}
     if(!t)return;
     e.preventDefault();
-    var y=t.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0);
-    try{window.scrollTo({top:y,behavior:'smooth'});}catch(_){window.scrollTo(0,y);}
+    jump(t);
   });
 })();
 </script>
