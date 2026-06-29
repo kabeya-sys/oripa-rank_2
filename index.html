@@ -2372,8 +2372,10 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
   // モバイル：戻る操作を1回吸収してポップアップ
   history.pushState(null,'',location.href);
   window.addEventListener('popstate',function(){ if(!sessionStorage.getItem('ep_done')){ history.pushState(null,'',location.href); if(Date.now()-(window.__inpageNavAt||0)<4000)return; show(); } });
-  // PC：マウスが画面上端から離れたら
-  document.addEventListener('mouseout',function(e){ if(e.clientY<=0 && !e.relatedTarget) show(); });
+  // PC：マウスが画面上端から離れたら（タッチ端末は誤発火するので無効。内部ジャンプ直後も抑制）
+  if(!(('ontouchstart' in window)||navigator.maxTouchPoints>0)){
+    document.addEventListener('mouseout',function(e){ if(e.clientY<=0 && !e.relatedTarget && Date.now()-(window.__inpageNavAt||0)>=4000) show(); });
+  }
   // 背景クリックで閉じる
   pop.addEventListener('click',function(e){ if(e.target===pop) pop.classList.remove('show'); });
 })();
