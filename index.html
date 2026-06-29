@@ -2371,7 +2371,7 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
   function show(){ if(shown||sessionStorage.getItem('ep_done'))return; shown=true; sessionStorage.setItem('ep_done','1'); pop.classList.add('show'); }
   // モバイル：戻る操作を1回吸収してポップアップ
   history.pushState(null,'',location.href);
-  window.addEventListener('popstate',function(){ if(!sessionStorage.getItem('ep_done')){ history.pushState(null,'',location.href); show(); } });
+  window.addEventListener('popstate',function(){ if(!sessionStorage.getItem('ep_done')){ history.pushState(null,'',location.href); if(Date.now()-(window.__inpageNavAt||0)<4000)return; show(); } });
   // PC：マウスが画面上端から離れたら
   document.addEventListener('mouseout',function(e){ if(e.clientY<=0 && !e.relatedTarget) show(); });
   // 背景クリックで閉じる
@@ -2404,6 +2404,7 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
     var t;try{t=document.querySelector(href);}catch(_){return;}
     if(!t)return;
     e.preventDefault();
+    window.__inpageNavAt=Date.now();
     jump(t);
   });
 })();
