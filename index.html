@@ -2583,6 +2583,23 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
     });
     /* 慣性スクロール中は再開を延期（自動送り中のscrollイベントはautoフラグで無視） */
     el.addEventListener('scroll', function(){ if(auto) return; scheduleResume(); }, {passive:true});
+    /* ループ対応スクロールバー（1周でバーが左→右に1回移動） */
+    var ind = document.createElement('div'); ind.className = 'scroll-ind';
+    var bar = document.createElement('div'); bar.className = 'scroll-ind-bar';
+    ind.appendChild(bar);
+    el.parentNode.insertBefore(ind, el.nextSibling);
+    function updInd(){
+      var w = loopW(), cw = el.clientWidth;
+      if(w < 400 || cw < 50){ ind.style.display = 'none'; return; }
+      ind.style.display = '';
+      var tw = Math.max(cw / w, 0.12) * 100;
+      bar.style.width = tw + '%';
+      bar.style.left = ((el.scrollLeft % w) / w) * (100 - tw) + '%';
+    }
+    el.addEventListener('scroll', updInd, {passive:true});
+    window.addEventListener('resize', updInd);
+    window.addEventListener('load', updInd, {once:true});
+    requestAnimationFrame(updInd);
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; }); }, {threshold:0.05}).observe(el);
     } else { visible = true; }
