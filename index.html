@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    Reset / Base
 ============================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
 body{
   font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;
   color:#1a1a1a;
@@ -2519,7 +2519,7 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
       var top=t.getBoundingClientRect().top;
       if(Math.abs(top)<=6||Date.now()>end)return;
       var y=top+(window.pageYOffset||document.documentElement.scrollTop||0);
-      try{window.scrollTo({top:y,behavior:'smooth'});}catch(_){window.scrollTo(0,y);}
+      try{window.scrollTo({top:y,behavior:'instant'});}catch(_){window.scrollTo(0,y);}
       setTimeout(step,350);
     })();
   }
