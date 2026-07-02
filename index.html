@@ -1837,11 +1837,10 @@ h1.article-title .at-sub{display:block;font-size:13.5px;font-weight:700;color:#7
 .cmp-banner-attached{border-radius:10px 10px 0 0;margin:0}
 /* 案件カード：バナー横スクロール */
 .banner-scroll{display:flex;align-items:center;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:0 0 8px;margin:0 0 4px}
-.banner-scroll.bs-marquee{overflow:hidden;scroll-snap-type:none;gap:0}
-.bs-marquee .bs-track{display:flex;align-items:center;gap:8px;flex:none;padding-right:8px;animation:bs-loop 60s linear infinite;will-change:transform}
+.banner-scroll.bs-marquee{overflow-x:auto;scroll-snap-type:none;gap:0;scrollbar-width:none}
+.banner-scroll.bs-marquee::-webkit-scrollbar{display:none}
+.bs-marquee .bs-track{display:flex;align-items:center;gap:8px;flex:none;padding-right:8px}
 .bs-marquee .bs-track img{width:80vw;max-width:340px;height:auto;flex:none}
-.bs-marquee.bs-paused .bs-track{animation-play-state:paused}
-@keyframes bs-loop{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .banner-scroll::-webkit-scrollbar,.hscroll::-webkit-scrollbar{display:none}
 .banner-scroll,.hscroll{scrollbar-width:none;-ms-overflow-style:none}
 .banner-scroll img{width:100%;height:auto;flex:none;border-radius:8px;scroll-snap-align:center;border:1px solid #ececec}
@@ -2544,7 +2543,7 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
 })();
 </script>
 <script>
-/* 案件カードのバナー：連続マーキー（トラック複製をtranslateXで無限ループ、タップ中は停止） */
+/* 案件カードのバナー：自動マーキー＋手動スクロール両立（rAFでscrollLeftを送り、操作中は停止・3秒後に再開） */
 (function(){
   var SPEED = 42; /* px/秒 */
   document.querySelectorAll('.banner-scroll').forEach(function(el){
@@ -2554,23 +2553,40 @@ let adtasukaruSafetyTagExistsS;(function(){const adtasukaruToolList=[{id:'7',cli
     while(el.firstChild){ track.appendChild(el.firstChild); }
     var clone = track.cloneNode(true); clone.setAttribute('aria-hidden','true');
     el.appendChild(track); el.appendChild(clone);
-    var n = track.children.length;
-    function apply(d){ track.style.animationDuration = d + 's'; clone.style.animationDuration = d + 's'; }
-    apply((n * 8).toFixed(1)); /* 画像ロード前の暫定値 */
-    var recalcT;
-    function recalc(){
-      clearTimeout(recalcT);
-      recalcT = setTimeout(function(){
-        var w = track.scrollWidth;
-        if(w > 400){ apply((w / SPEED).toFixed(1)); }
-      }, 300);
+    var pos = 0, auto = true, visible = false, resumeT = null, last = 0;
+    function loopW(){ return track.scrollWidth + 8; } /* トラック幅＋gap */
+    function tick(ts){
+      requestAnimationFrame(tick);
+      if(!visible || !auto){ last = ts; return; }
+      if(last){
+        pos += SPEED * (ts - last) / 1000;
+        var w = loopW();
+        if(w > 400){ if(pos >= w) pos -= w; el.scrollLeft = pos; }
+      }
+      last = ts;
     }
-    track.querySelectorAll('img').forEach(function(im){ im.addEventListener('load', recalc); });
-    window.addEventListener('load', recalc, {once:true});
-    el.addEventListener('pointerdown', function(){ el.classList.add('bs-paused'); });
-    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
-      el.addEventListener(ev, function(){ el.classList.remove('bs-paused'); });
+    function pause(){ auto = false; clearTimeout(resumeT); }
+    function scheduleResume(){
+      clearTimeout(resumeT);
+      resumeT = setTimeout(function(){
+        var w = loopW();
+        pos = el.scrollLeft;
+        if(w > 400){ while(pos >= w) pos -= w; el.scrollLeft = pos; }
+        auto = true;
+      }, 3000);
+    }
+    el.addEventListener('touchstart', pause, {passive:true});
+    el.addEventListener('pointerdown', pause);
+    el.addEventListener('wheel', function(){ pause(); scheduleResume(); }, {passive:true});
+    ['touchend','touchcancel','pointerup','pointercancel'].forEach(function(ev){
+      el.addEventListener(ev, scheduleResume, {passive:true});
     });
+    /* 慣性スクロール中は再開を延期（自動送り中のscrollイベントはautoフラグで無視） */
+    el.addEventListener('scroll', function(){ if(auto) return; scheduleResume(); }, {passive:true});
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; }); }, {threshold:0.05}).observe(el);
+    } else { visible = true; }
+    requestAnimationFrame(tick);
   });
 })();
 </script>
