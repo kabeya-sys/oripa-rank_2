@@ -30,3 +30,12 @@ index_a_backup.html
 research.backup_*.html
 素材/各案件画像/オリくじ/オリくじキャンペーン/*.html
 素材/各案件画像/オリくじ/オリくじキャンペーン/*_files/
+
+# 作業用bak・保存バックアップ（デプロイ不要・2026-07-14追記）
+index.html.bak*
+index_*.bak*
+company.backup_*.html
+privacy-policy.backup_*.html
+# トレカレインボー：保存ページのダンプ（デプロイ不要・2026-07-14）
+素材/スクロールバナー用画像/トレカレインボー/*.html
+素材/スクロールバナー用画像/トレカレインボー/*_files/
